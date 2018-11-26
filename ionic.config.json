@@ -1,0 +1,7 @@
+{
+  "name": "dot5",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
