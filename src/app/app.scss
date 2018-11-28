@@ -14,3 +14,283 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+  *::-webkit-scrollbar {
+      display: none;
+  }
+
+.primary-bg {
+    background-color: color($colors, primary);
+  }
+  
+  .secondary-bg {
+    background-color: color($colors, secondary);
+  }
+  
+  .gray-bg {
+    background-color: color($colors, gray);
+  }
+  
+  .light-bg {
+    background-color: color($colors, light);
+  }
+  
+  .common-bg {
+    background-color: color($colors, common-bg);
+  }
+  
+  .white-bg {
+    background-color: color($colors, white);
+  }
+  
+  .restaurant-bg {
+    background-color: color($colors, restaurant-color);
+  }
+  
+  .hotel-bg {
+    background-color: color($colors, hotel-color);
+  }
+  
+  .attraction-bg {
+    background-color: color($colors, attraction-color);
+  }
+  
+  .padding-xs {
+    padding: 10px;
+  }
+  
+  .round {
+    border-radius: 3px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .uppercase {
+    text-transform: uppercase;
+  }
+  
+  // text size
+  .text-2x {
+    font-size: 2em;
+  }
+  
+  .text-1x {
+    font-size: 1em;
+  }
+  
+  .text-sm {
+    font-size: 0.7em;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  // position
+  .pull-left {
+    float: left;
+  }
+  
+  .pull-right {
+    float: right;
+  }
+  
+  .rlt {
+    position: relative;
+  }
+  
+  .clear {
+    clear: both;
+  }
+  
+  .align-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .sideBg {
+    background:url("http://cdn1.bestpsdfreebies.com/wp-content/uploads/2013/11/5_free_seamless_icon_patterns.jpg") repeat center center fixed;
+  }
+  
+  .border-bottom {
+    border-bottom: 1px solid color($colors, border-color);
+  }
+  
+  // badge style
+  ion-badge {
+    &.square {
+      border-radius: 0;
+    }
+  }
+  
+  // card style
+  .card {
+    background: #FFF;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  .profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+  
+  // navbar style
+  ion-navbar.no-border {
+  
+    .toolbar-background {
+      border: none;
+    }
+  }
+  
+  // transparent nav bar
+  .toolbar.nav-transparent {
+  
+    .toolbar-background {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+  }
+  
+  // list style
+  .list-no-border {
+  
+    .item:first-child {
+      border: none;
+    }
+    .item:last-child {
+      border: none;
+    }
+  
+    .item {
+      .item-inner {
+        border: none;
+      }
+    }
+  }
+  
+  .list-full-border {
+    @extend .list-no-border;
+  
+    .item,
+    .item:first-child,
+    .item:last-child {
+      border-bottom: 1px solid color($colors, border-color);
+  
+      .item-inner {
+        border: none;
+      }
+    }
+  }
+  
+  // item style
+  .item.no-border {
+  
+    .item-inner {
+      border: none;
+    }
+  }
+  
+  // common classes
+  .middle-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  // fix slides style
+  ion-slides {
+    .swiper-pagination.hide {
+      display: block !important;
+    }
+  }
+  
+  // button style
+  .button-transparent {
+    border: 1px solid color($colors, light);
+    background: rgba(0, 0, 0, 0.1);
+  
+    &.activated {
+      background: rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  // auth pages style
+  .auth-bg {
+    background: url('/assets/img/cagsawa.jpg');
+    background-size: 100% 100%;
+  
+    .scroll-content {
+      background: rgba(0, 0, 0, 0.6);
+    }
+  }
+  
+  // item detail
+  
+  .item-detail {
+    .scroll-content {
+      margin-top: 0 !important;
+    }
+  
+    .item-header {
+      height: 45%;
+  
+      .inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+      }
+    }
+  
+    // social buttons styles
+    .buttons {
+  
+      ion-icon {
+        font-size: 4rem;
+        display: block;
+        margin-bottom: 1rem;
+      }
+    }
+  
+    // rating form
+    .rating-form {
+  
+      ion-icon {
+        margin: 1rem;
+        font-size: 4rem;
+      }
+    }
+  
+    // reviews
+    .reviews {
+  
+      ion-avatar {
+        align-self: flex-start;
+      }
+    }
+  
+    #map-detail {
+      width: 100%;
+      height: 150px;
+    }
+  
+    // reviews and rating
+    .middle-align {
+      height: auto;
+    }
+  
+    .rating-value {
+      font-size: 5rem;
+    }
+  
+    .progress-bar {
+      display: inline-block;
+      height: 1rem;
+    }
+  }
+  

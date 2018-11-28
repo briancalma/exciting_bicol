@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="segmentPage">
+      <ion-segment-button value="map">
+        Map 
+        <!-- <ion-icon name="navigate"></ion-icon> -->
+      </ion-segment-button>
+      <ion-segment-button value="dashboard">
+        Dashboard 
+        <!-- <ion-icon name="apps"></ion-icon>  -->
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding [ngSwitch]="segmentPage">
+  <div *ngSwitchCase="'map'" id="mapContainer" #map>  
+      
+  </div>
+  <div *ngSwitchCase="'dashboard'">
+    DASHBOARD
+  </div>
+</ion-content>

@@ -1,7 +1,5 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/v2/theming/
-$font-path: "../assets/fonts";
-
 @import "ionic.globals";
 
 
@@ -14,7 +12,7 @@ $font-path: "../assets/fonts";
 
 $text-color:        #000;
 $background-color:  #fff;
-
+ 
 
 // Named Color Variables
 // --------------------------------------------------
@@ -25,31 +23,24 @@ $background-color:  #fff;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  primary:          #EC327D,
+  secondary:        #32db64,
+  danger:           #f53d3d,
+  light:            #756666,
+  dark:             #222,
+  favorite:         #69BB7B,
+  bg-color:         #EEEEEE,
+  fb-color:         #3B5999,
+  gg-color:         #DA4537,
+  border-color:     #ECECEC,
+  gray:             #898989,
+  common-bg:        #F7F7F7,
+  white:            #FFFFFF,
+  restaurant-color: #FF6565,
+  hotel-color:      #0AC7B4,
+  attraction-color: #33B5E5,
+  light-blue:       #2FB4E5,
 );
-
-
-// App iOS Variables
-// --------------------------------------------------
-// iOS only Sass variables can go here
-
-
-
-
-// App Material Design Variables
-// --------------------------------------------------
-// Material Design only Sass variables can go here
-
-
-
-
-// App Windows Variables
-// --------------------------------------------------
-// Windows only Sass variables can go here
 
 
 
@@ -69,11 +60,5 @@ $colors: (
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/v2/ionicons/
 
+$ionicons-font-path: "../assets/fonts";
 @import "ionic.ionicons";
-
-
-// Fonts
-// --------------------------------------------------
-
-@import "roboto";
-@import "noto-sans";
