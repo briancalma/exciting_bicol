@@ -4,6 +4,7 @@ import { IonicPage, NavController, ToastController } from 'ionic-angular';
 
 import { User } from '../../providers';
 import { MainPage } from '../';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 
 @IonicPage()
 @Component({
@@ -23,9 +24,11 @@ export class LoginPage {
   private loginErrorString: string;
 
   constructor(public navCtrl: NavController,
-    public user: User,
-    public toastCtrl: ToastController,
-    public translateService: TranslateService) {
+              public user: User,
+              public toastCtrl: ToastController,
+              public translateService: TranslateService,
+              public fb: Facebook
+             ) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
@@ -46,5 +49,36 @@ export class LoginPage {
       });
       toast.present();
     });
+  }
+
+  facebookLogin() {
+    this.fb.login(['email', 'user_friends', 'public_profile','user_photos','user_birthday'])
+      .then((res : FacebookLoginResponse) => {
+         if(res.status == "connected") {
+
+          // Getting ID and Token
+          var fb_id = res.authResponse.userID;
+          var fb_token = res.authResponse.accessToken;
+
+          this.fb.api("/me?fields=name,gender,birthday,email",[])
+            .then((user) => {
+              var gender = user.gender;
+              var birthday = user.birthday;
+              var name = user.name;
+              var email = user.email;
+
+              console.log("=== USER INFOS ===");
+              console.log("Gender : " + gender);
+              console.log("Birthday : " + birthday);
+              console.log("Name : " + name);
+              console.log("Email : " + email);
+
+              this.navCtrl.push(MainPage);
+            });
+        } else {
+          console.log("An error occured . . .");
+        }
+      })
+      .catch(e => console.error('Error logging into FB', e));
   }
 }

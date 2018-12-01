@@ -1,0 +1,30 @@
+Account 
+  Login 
+  Logout 
+  Register 
+  Facebook - ok 
+  Google    
+  Profile 
+
+Home
+  Map - ok 
+  Dashboard 
+   > Top Views 
+   > Recently Viewed 
+   > Attractions 
+   > Hotels 
+   > Foods 
+   > Historical 
+   > Night Life 
+   > Advertisement banner
+   > View all by place
+   > View all by category 
+   > Item Detail 
+
+DIY 
+ACTIVITY 
+
+
+
+
+  

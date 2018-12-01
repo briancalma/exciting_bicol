@@ -31,26 +31,33 @@ export class HomePage {
   loadMap() {
     let latLng = null;
     let mapOptions = null;
+    let marker = null;
    
     this.geo.watchPosition()
       .subscribe(pos => {
-        latLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+        latLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);     // generate latitude and longitude 
+        
+        // creation of a new map
+        if(this.map == null) {
+          // Map configurations
+          mapOptions = {
+            center: latLng,
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          }
 
-        mapOptions = {
-          center: latLng,
-          zoom: 15,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+          this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);    // create new map
+          marker = this.addMarker(latLng);                                              // adding of new marker
+        } else {
+          this.map.setCenter(latLng);                                                   // update map
+          marker.setPosition(latLng);                                                   // update marker position
         }
-    
-        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);    
-
-        this.addMarker(latLng);
       });
   }
 
   addMarker(pos?: any) {
     let markerOptions = { map: this.map, animation: google.maps.Animation.BOUNCE , position: pos };
-    let marker = new google.maps.Marker( markerOptions ); 
+    return new google.maps.Marker( markerOptions ); 
   }
 
 }
