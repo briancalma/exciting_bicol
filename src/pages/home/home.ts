@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
-
+import { Items } from '../../providers/items/items';
 declare var google: any;
 
 @IonicPage()
@@ -12,16 +12,15 @@ declare var google: any;
 export class HomePage {
 
   @ViewChild('map') mapElement: ElementRef;
-  
   public segmentPage = "map";
-
   public map: any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-              public geo: Geolocation
+              public geo: Geolocation,
+              public item: Items
               ) {
-
+    
   }
 
   ionViewDidLoad() {
@@ -59,5 +58,12 @@ export class HomePage {
     let markerOptions = { map: this.map, animation: google.maps.Animation.BOUNCE , position: pos };
     return new google.maps.Marker( markerOptions ); 
   }
+
+  range(n) {
+    return new Array(Math.round(n));
+  }
+
+
+
 
 }

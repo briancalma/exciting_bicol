@@ -11,7 +11,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 
-import { Items } from '../mocks/providers/items';
+// import { Items } from '../mocks/providers/items';
+import { Items } from '../providers/items/items';
 import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
 import { PLUGINS } from './plugins';

@@ -21,10 +21,12 @@ Home
    > View all by category 
    > Item Detail 
 
+
 DIY 
 ACTIVITY 
 
 
-
+keytool -genkey -v -keystore my-key.keystore -alias myalias -keyalg RSA -keysize 2048 -validity 10000
+Password: Linksis123
 
   
