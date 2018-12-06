@@ -131,7 +131,7 @@
           <ion-icon name="home" color="hotel-color"></ion-icon>
           <span ion-text color="dark" style="font-size:20px;"> Hotels </span>
         </div>
-        <span class="pull-right" color="secondary" ion-text>See More >></span>
+        <span class="pull-right" color="secondary" ion-text (click)="viewAll('hotels')">See More >></span>
         <div class="clear"></div>
       </div>
       <div class="items" padding-left padding-bottom> 
@@ -162,7 +162,7 @@
           <ion-icon name="restaurant" color="restaurant-color"></ion-icon>
           <span ion-text color="dark" style="font-size:20px;"> Restaurants </span>
         </div>
-        <span class="pull-right" color="secondary" ion-text>See More >></span>
+        <span class="pull-right" color="secondary" ion-text (click)="viewAll('restaurants')">See More >></span>
         <div class="clear"></div>
       </div>
       <div class="items" padding-left padding-bottom> 
@@ -191,7 +191,7 @@
           <ion-icon name="walk" color="attraction-color"></ion-icon>
           <span ion-text color="dark" style="font-size:20px;"> Things to do </span>
         </div>
-        <span class="pull-right" color="secondary" ion-text>See More >></span>
+        <span class="pull-right" color="secondary" ion-text (click)="viewAll('attractions')">See More >></span>
         <div class="clear"></div>
       </div>
       <div class="items" padding-left padding-bottom> 
@@ -222,7 +222,7 @@
             <ion-icon name="moon"></ion-icon>
             <span ion-text color="dark" style="font-size:20px;"> Night Life </span>
           </div>
-          <span class="pull-right" color="secondary" ion-text>See More >></span>
+          <span class="pull-right" color="secondary" ion-text (click)="viewAll('nightLife','night life')">See More >></span>
           <div class="clear"></div>
         </div>
         <div class="items" padding-left padding-bottom> 
@@ -253,7 +253,7 @@
             <ion-icon name="information-circle" color="light-blue"></ion-icon>
             <span ion-text color="dark" style="font-size:20px;"> Historical Places </span>
           </div>
-          <span class="pull-right" color="secondary" ion-text>See More >></span>
+          <span class="pull-right" color="secondary" ion-text (click)="viewAll('historicalPlaces', 'historical places')">See More >></span>
           <div class="clear"></div>
         </div>
         <div class="items" padding-left padding-bottom> 

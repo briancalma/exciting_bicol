@@ -6,6 +6,13 @@ import { TOPITEMS } from '../../models/mock-top-items';
 @Injectable()
 export class Items {
 
+  public items:any = { 
+    hotels : null,
+    restaurants: null,
+    nightLife: null,
+    historicalPlaces: null,
+    attractions: null
+  };
   public hotels:any = [];
   public restaurants:any = [];
   public nightLife:any = [];
@@ -132,11 +139,22 @@ export class Items {
         element.reviews = this.reviews;
       }); 
 
-
-      // this.restaurants.scores = this.scores;
-      // this.nightLife.scores = this.scores;
-      // this.historicalPlaces.scores = this.scores;
-      // this.attractions.scores = this.scores;
+      // this.items.push({hotels: this.hotels});
+      // this.items.push({restaurants: this.restaurants});
+      // this.items.push({nightLife: this.nightLife});
+      // this.items.push({historicalPlaces: this.historicalPlaces});
+      // this.items.push({attractions: this.attractions });      
+      this.items.hotels = this.hotels;
+      this.items.restaurants = this.restaurants;
+      this.items.nightLife = this.nightLife;
+      this.items.historicalPlaces = this.historicalPlaces;
+      this.items.attractions = this.attractions;
     });
+  }
+
+  getItemsByKey(key: any) {
+
+    return this.items[key];
+
   }
 }

@@ -1,0 +1,43 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="attraction-color">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>{{ title | uppercase}}</ion-title> 
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+<ion-content padding class="attractions common-bg">
+  <div class="card round" margin-bottom *ngFor="let item of items" (click)="viewItem(item)">
+    <div class="card-header" [ngStyle]="{'background-image': 'url(' + item.thumb + ')'}"></div>
+    <div class="padding-xs">
+      <h5>{{ item.name }}</h5>
+      <div class="rating">
+        <ion-icon name="md-star" color="attraction-color" *ngFor="let star of range(item.ratings)"></ion-icon>
+        <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - item.ratings)"></ion-icon>
+        <span ion-text color="gray">{{ item.reviews.length }} reviews</span>
+      </div>
+      <span ion-text color="gray">Recommended for:</span>
+      <div>
+        <div class="pull-left">
+          <span ion-text color="attraction-color">{{ item.scores[0].name }},</span>
+          <span ion-text color="attraction-color">{{ item.scores[1].name }}</span>
+        </div>
+        <div class="pull-right">
+          12 km
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+  

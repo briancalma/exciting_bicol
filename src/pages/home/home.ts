@@ -68,6 +68,16 @@ export class HomePage {
     this.navCtrl.push("ItemDetailPage",{ item: item});
   }
 
+  viewAll(key: any, title?: string) {
+
+    title = title != null && title != ''? title : key;
+
+    let data = { key: key, title: title };
+
+
+    // console.log(data);
+    this.navCtrl.push("ItemListPage", {data : data });
+  }
 
 
 
