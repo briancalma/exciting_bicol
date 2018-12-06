@@ -135,7 +135,7 @@
         <div class="clear"></div>
       </div>
       <div class="items" padding-left padding-bottom> 
-        <div class="card round" *ngFor="let item of item.hotels">
+        <div class="card round" *ngFor="let item of item.hotels" (click)="viewItem(item)">
           <div class="card-header" [ngStyle]="{'background-image': 'url('+ item.thumb +')'}"></div>
             <div class="padding-xs">
               <h5>
@@ -166,10 +166,10 @@
         <div class="clear"></div>
       </div>
       <div class="items" padding-left padding-bottom> 
-        <div class="card round" *ngFor="let item of item.restaurants">
+        <div class="card round" *ngFor="let item of item.restaurants" (click)="viewItem(item)">
           <div class="card-header" [ngStyle]="{'background-image': 'url('+ item.thumb +')'}"></div>
             <div class="padding-xs">
-              <h5>Place Title</h5>
+              <h5>{{ item.name }}</h5>
               <div class="rating">
                 <ion-icon name="md-star" color="restaurant-color" *ngFor="let star of range(item.stars)"></ion-icon>
                 <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - item.stars)" ></ion-icon>
@@ -195,7 +195,7 @@
         <div class="clear"></div>
       </div>
       <div class="items" padding-left padding-bottom> 
-        <div class="card round" *ngFor="let item of item.attractions">
+        <div class="card round" *ngFor="let item of item.attractions" (click)="viewItem(item)">
             <div class="card-header" [ngStyle]="{'background-image': 'url('+ item.thumb +')'}"></div>
               <div class="padding-xs">
                 <h5>
@@ -226,7 +226,7 @@
           <div class="clear"></div>
         </div>
         <div class="items" padding-left padding-bottom> 
-          <div class="card round" *ngFor="let item of item.nightLife">
+          <div class="card round" *ngFor="let item of item.nightLife" (click)="viewItem(item)">
             <div class="card-header" [ngStyle]="{'background-image': 'url('+ item.thumb +')'}"></div>
               <div class="padding-xs">
                 <h5>
@@ -257,7 +257,7 @@
           <div class="clear"></div>
         </div>
         <div class="items" padding-left padding-bottom> 
-          <div class="card round" *ngFor="let item of item.historicalPlaces">
+          <div class="card round" *ngFor="let item of item.historicalPlaces" (click)="viewItem(item)">
             <div class="card-header" [ngStyle]="{'background-image': 'url('+ item.thumb +')'}"></div>
               <div class="padding-xs">
                 <h5>

@@ -18,7 +18,7 @@ export class HomePage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public geo: Geolocation,
-              public item: Items
+              public item: Items 
               ) {
     
   }
@@ -61,6 +61,11 @@ export class HomePage {
 
   range(n) {
     return new Array(Math.round(n));
+  }
+
+  viewItem(item: any) {
+    // console.log(item);
+    this.navCtrl.push("ItemDetailPage",{ item: item});
   }
 
 
