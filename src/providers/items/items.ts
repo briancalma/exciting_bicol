@@ -94,7 +94,7 @@ export class Items {
   }
 
   query(params?: any) {
-    return this.api.get('/items', params);
+    return this.api.get('items', params);
   }
 
   add(item: Item) {
@@ -139,11 +139,6 @@ export class Items {
         element.reviews = this.reviews;
       }); 
 
-      // this.items.push({hotels: this.hotels});
-      // this.items.push({restaurants: this.restaurants});
-      // this.items.push({nightLife: this.nightLife});
-      // this.items.push({historicalPlaces: this.historicalPlaces});
-      // this.items.push({attractions: this.attractions });      
       this.items.hotels = this.hotels;
       this.items.restaurants = this.restaurants;
       this.items.nightLife = this.nightLife;
@@ -152,9 +147,24 @@ export class Items {
     });
   }
 
-  getItemsByKey(key: any) {
-
+  getItemsByKey(key: any) { 
     return this.items[key];
+  }
 
+  getItemsByPlaces(place: any) {
+    
+    let hotels = this.items.hotels.filter(ele => ele.place == place);
+    let restaurants = this.items.restaurants.filter(ele => ele.place == place);
+    let nightLife = this.items.nightLife.filter(ele => ele.place == place);
+    let historicalPlaces = this.items.historicalPlaces.filter(ele => ele.place == place);
+    let attractions = this.items.attractions.filter(ele => ele.place == place);
+
+    return {
+              hotels: hotels,
+              restaurants: restaurants,
+              nightLife: nightLife,
+              historicalPlaces: historicalPlaces,
+              attractions: attractions
+           };
   }
 }

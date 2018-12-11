@@ -1,37 +1,37 @@
 export const TOPITEMS = [
     {
         id: 1,
-        name: "Albay",
+        name: "albay",
         listings: 12,
         thumb: "http://www.wampstore.com/store/image/cache/data/Wamp/Products/Vallejo/Flat%20Blue-900x900.jpg"
     }, 
     {
         id: 2,
-        name: "Sorsogon",
+        name: "sorsogon",
         listings: 5,
         thumb: "http://www.wampstore.com/store/image/cache/data/Wamp/Products/Vallejo/Flat%20Blue-900x900.jpg"
     },
     {
         id: 3,
-        name: "Catanduanes",
+        name: "catanduanes",
         listings: 3,
         thumb: "http://www.wampstore.com/store/image/cache/data/Wamp/Products/Vallejo/Flat%20Blue-900x900.jpg"
     },
     {
         id: 4,
-        name: "Cam Sur",
+        name: "cam sur",
         listings: 5,
         thumb: "http://www.wampstore.com/store/image/cache/data/Wamp/Products/Vallejo/Flat%20Blue-900x900.jpg"
     }, 
     {
         id: 5,
-        name: "Cam Norte",
+        name: "cam norte",
         listings: 3,
         thumb: "http://www.wampstore.com/store/image/cache/data/Wamp/Products/Vallejo/Flat%20Blue-900x900.jpg"
     },
     {
         id: 6,
-        name: "Naga",   
+        name: "naga",   
         listings: 4,
         thumb: "http://www.wampstore.com/store/image/cache/data/Wamp/Products/Vallejo/Flat%20Blue-900x900.jpg"
     }

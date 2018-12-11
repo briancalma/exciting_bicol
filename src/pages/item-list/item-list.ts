@@ -45,4 +45,5 @@ export class ItemListPage {
   range(n) {
     return new Array(Math.round(n));
   }
+  
 }

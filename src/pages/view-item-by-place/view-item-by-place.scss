@@ -1,0 +1,169 @@
+page-view-item-by-place,
+.home 
+{
+    .scroll-content {
+    padding-bottom: 5rem;
+    }
+
+    .float-search {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 1rem;
+
+    button {
+        position: absolute;
+        margin: 0.4rem 0.2rem;
+        left: 1.4rem;
+        top: 1.2rem;
+        height: 2.4em;
+        box-shadow: none;
+
+        &.activated {
+        background: none;
+        }
+    }
+
+        ion-input {
+            padding-left: 5rem;
+        }
+    }
+
+    .header-dashboard {
+        height: 30%;
+        background: url('http://freefrontend.com/assets/img/placeholder.png');
+        background-size: 100% auto;
+    }
+
+    // list of items
+    .block-title {
+        line-height: 2rem;
+
+        ion-icon {
+            font-size: 2rem;
+        }
+    }
+
+    .items {
+        overflow-x: auto;
+        white-space: nowrap;
+
+        .card {
+            overflow: hidden;
+            width: 33rem;
+            display: inline-block;
+            margin-right: 1.6rem;
+
+            .card-header {
+                width: 100%;
+                height: 15rem;
+                background-size: 100% auto;
+            }
+
+            span[gray] {
+                font-size: 1.2rem;
+            }
+
+            .pull-left {
+                max-width: 18rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: color($colors, restaurant-color);
+            }
+        }
+    }
+
+    .img-thumb {
+        height:150px;
+    }
+
+    .banner-bg {
+        background-color: #69BB7B;
+        color: #fff;
+        font-family: 'RobotoRegular', 'Droid Sans', sans-serif;
+        padding: 20px;
+    }
+}
+
+.md {
+    .home {
+
+    .float-search {
+
+        button {
+        top: 1.6rem;
+        }
+
+        ion-input {
+        padding-left: 4rem;
+        }
+    }
+
+    .tab-button-text {
+        margin-top: 0;
+    }
+}
+    
+    .sub-text {
+        font-size:1.5rem;
+        font-weight:bolder;
+    }
+    
+    .card-background-page {
+
+        ion-card {
+            position: relative;
+            text-align: center;
+        }
+        
+        .card-title {
+            position: absolute;
+            top: 36%;
+            font-size: 2.0em;
+            width: 100%;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .card-subtitle {
+            font-size: 1.0em;
+            position: absolute;
+            top: 55%;
+            width: 100%;
+            color: #fff;
+        }
+    }
+    
+    .top-items {
+        overflow-x: auto;
+        white-space: nowrap;
+        margin-left: 1rem;
+        .card {
+            overflow: hidden;
+            width: 20rem;
+            display: inline-block;
+            // margin-right: 0rem;
+            margin-right: 0px;
+            .card-header {
+            width: 100%;
+            height: 15rem;
+            background-size: 100% auto;
+            }
+
+            span[gray] {
+            font-size: 1.2rem;
+            }
+
+            .pull-left {
+            max-width: 18rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: color($colors, restaurant-color);
+            }
+        }
+    }    
+}
+
+    

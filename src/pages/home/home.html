@@ -17,8 +17,9 @@
   <!-- Map Segment -->
   <div *ngSwitchCase="'map'" id="mapContainer" #map style="width: 100%; height: 100vh;"></div>
   <!-- Dashboard Segment -->
-  <section *ngSwitchCase="'dashboard'">
-    <!-- <div class="header-dashboard rlt">
+  <div *ngSwitchCase="'dashboard'">
+    <!-- 
+    <div class="header-dashboard rlt">
       <div class="align-bottom" padding>
         <div class="pull-left">
           <h2 ion-text color="white">
@@ -37,8 +38,8 @@
         </div>
         <div class="clear"></div>
       </div>
-    </div> -->
-
+    </div>
+    -->
      <!-- Top Destinations -->
     <div class="block" margin-top>
         <div class="block-title" padding-left padding-right>
@@ -55,17 +56,17 @@
       </div>
         
       <div class="card-background-page top-items">
-        <ion-card class="card round" *ngFor="let item of item.topItems">
+        <ion-card class="card round" *ngFor="let item of item.topItems" (click)="viewItemsByPlace(item.name)">
           <img [src]="item.thumb" class="img-thumb"/>
-          <div class="card-title">{{ item.name }}</div>
+          <div class="card-title">{{ item.name | uppercase }}</div>
           <div class="card-subtitle">{{ item.listings }} Listings</div> 
         </ion-card>
 
       </div>
     </div>
-      <!-- End of Top Destinations -->
+    <!-- End of Top Destinations -->
 
-    <!-- Recent Views -->
+    <!-- Recent Views --> 
     <div class="block" margin-top>
       <div class="block-title" padding-left padding-right>
         <div class="pull-left">
@@ -124,7 +125,7 @@
     </div>
     <!-- End Recent Views -->
 
-    <!-- Hotels -->
+    <!-- Hotels --> 
     <div class="block" margin-top>
       <div class="block-title" padding-left padding-right>
         <div class="pull-left">
@@ -134,23 +135,27 @@
         <span class="pull-right" color="secondary" ion-text (click)="viewAll('hotels')">See More >></span>
         <div class="clear"></div>
       </div>
-      <div class="items" padding-left padding-bottom> 
-        <div class="card round" *ngFor="let item of item.hotels" (click)="viewItem(item)">
-          <div class="card-header" [ngStyle]="{'background-image': 'url('+ item.thumb +')'}"></div>
-            <div class="padding-xs">
-              <h5>
-                {{ item.name }} <span class="pull-right" color="danger" ion-text>₱ {{ item.price| number:'.2-2' }}</span>
-              </h5>
-              <div class="rating">
-                <ion-icon name="md-star" color="restaurant-color" *ngFor="let star of range(item.stars)"></ion-icon>
-                <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - item.stars)" ></ion-icon>
-                <span ion-text color="gray">{{ item.rating }}</span>
+      <div class="items" padding-left padding-bottom>
+        <ion-slides speed="200">
+          <ion-slide *ngFor="let item of item.hotels">
+            <div class="card round" (click)="viewItem(item)">
+              <div class="card-header" [ngStyle]="{'background-image': 'url('+ item.thumb +')'}"></div>
+                <div class="padding-xs">
+                  <h5>
+                    {{ item.name }} <span class="pull-right" color="danger" ion-text>₱ {{ item.price| number:'.2-2' }}</span>
+                  </h5>
+                  <div class="rating">
+                    <ion-icon name="md-star" color="restaurant-color" *ngFor="let star of range(item.stars)"></ion-icon>
+                    <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - item.stars)" ></ion-icon>
+                    <span ion-text color="gray">{{ item.rating }}</span>
+                  </div>
+                  <span ion-text color="gray">Recommended for:</span>
+                  <ion-badge color="primary"> {{ item.tags }} </ion-badge> 
+                  <p ion-text color="light-blue"><ion-icon name="pin"></ion-icon> {{ item.place | uppercase }}</p>
               </div>
-              <span ion-text color="gray">Recommended for:</span>
-              <ion-badge color="primary"> {{ item.tags }} </ion-badge> 
-              <p ion-text color="light-blue"><ion-icon name="pin"></ion-icon> {{ item.address }}</p>
-          </div>
-        </div>
+            </div>
+          </ion-slide>
+        </ion-slides>
       </div>
     </div>
     <!-- End Hotels -->    
@@ -166,20 +171,26 @@
         <div class="clear"></div>
       </div>
       <div class="items" padding-left padding-bottom> 
-        <div class="card round" *ngFor="let item of item.restaurants" (click)="viewItem(item)">
-          <div class="card-header" [ngStyle]="{'background-image': 'url('+ item.thumb +')'}"></div>
-            <div class="padding-xs">
-              <h5>{{ item.name }}</h5>
-              <div class="rating">
-                <ion-icon name="md-star" color="restaurant-color" *ngFor="let star of range(item.stars)"></ion-icon>
-                <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - item.stars)" ></ion-icon>
-                <span ion-text color="gray">{{ item.rating }}</span>
+        <ion-slides speed="200">
+          <ion-slide *ngFor="let item of item.restaurants">
+            <div class="card round" (click)="viewItem(item)">
+              <div class="card-header" [ngStyle]="{'background-image': 'url('+ item.thumb +')'}"></div>
+                <div class="padding-xs">
+                  <h5>
+                    {{ item.name }} <span class="pull-right" color="danger" ion-text>₱ {{ item.price| number:'.2-2' }}</span>
+                  </h5>
+                  <div class="rating">
+                    <ion-icon name="md-star" color="restaurant-color" *ngFor="let star of range(item.stars)"></ion-icon>
+                    <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - item.stars)" ></ion-icon>
+                    <span ion-text color="gray">{{ item.rating }}</span>
+                  </div>
+                  <span ion-text color="gray">Recommended for:</span>  
+                  <ion-badge color="primary"> {{ item.tags }} </ion-badge> 
+                  <p ion-text color="light-blue"><ion-icon name="pin"></ion-icon> {{ item.place | uppercase }} </p>
               </div>
-              <span ion-text color="gray">Recommended for:</span>  
-              <ion-badge color="primary"> {{ item.tags }} </ion-badge> 
-              <p ion-text color="light-blue"><ion-icon name="pin"></ion-icon> {{ item.address }}</p>
-          </div>
-        </div>
+            </div>
+          </ion-slide>
+        </ion-slides>
       </div>
     </div>
     <!-- End Restaurants --> 
@@ -195,54 +206,62 @@
         <div class="clear"></div>
       </div>
       <div class="items" padding-left padding-bottom> 
-        <div class="card round" *ngFor="let item of item.attractions" (click)="viewItem(item)">
-            <div class="card-header" [ngStyle]="{'background-image': 'url('+ item.thumb +')'}"></div>
-              <div class="padding-xs">
-                <h5>
-                  {{ item.name }} <span class="pull-right" color="danger" ion-text>₱ {{ item.price| number:'.2-2' }}</span>
-                </h5>
-                <div class="rating">
-                  <ion-icon name="md-star" color="restaurant-color" *ngFor="let star of range(item.stars)"></ion-icon>
-                  <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - item.stars)" ></ion-icon>
-                  <span ion-text color="gray">{{ item.rating }}</span>
-                </div>
-                <span ion-text color="gray">Recommended for:</span>
-                <ion-badge color="primary"> {{ item.tags }} </ion-badge> 
-                <p ion-text color="light-blue"><ion-icon name="pin"></ion-icon> {{ item.address }}</p>
+        <ion-slides speed="200">
+          <ion-slide *ngFor="let item of item.attractions">
+            <div class="card round" (click)="viewItem(item)">
+              <div class="card-header" [ngStyle]="{'background-image': 'url('+ item.thumb +')'}"></div>
+                <div class="padding-xs">
+                  <h5>
+                    {{ item.name }} <span class="pull-right" color="danger" ion-text>₱ {{ item.price| number:'.2-2' }}</span>
+                  </h5>
+                  <div class="rating">
+                    <ion-icon name="md-star" color="restaurant-color" *ngFor="let star of range(item.stars)"></ion-icon>
+                    <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - item.stars)" ></ion-icon>
+                    <span ion-text color="gray">{{ item.rating }}</span>
+                  </div>
+                  <span ion-text color="gray">Recommended for:</span>
+                  <ion-badge color="primary"> {{ item.tags }} </ion-badge> 
+                  <p ion-text color="light-blue"><ion-icon name="pin"></ion-icon>{{ item.place | uppercase }}</p>
+              </div>
             </div>
-          </div>
+          </ion-slide>
+        </ion-slides>
       </div>
     </div>
     <!-- End Things to do -->    
   
     <!-- Night Life -->
     <div class="block" margin-top>
-        <div class="block-title" padding-left padding-right>
-          <div class="pull-left">
-            <ion-icon name="moon"></ion-icon>
-            <span ion-text color="dark" style="font-size:20px;"> Night Life </span>
-          </div>
-          <span class="pull-right" color="secondary" ion-text (click)="viewAll('nightLife','night life')">See More >></span>
-          <div class="clear"></div>
+      <div class="block-title" padding-left padding-right>
+        <div class="pull-left">
+          <ion-icon name="moon"></ion-icon>
+          <span ion-text color="dark" style="font-size:20px;"> Night Life </span>
         </div>
-        <div class="items" padding-left padding-bottom> 
-          <div class="card round" *ngFor="let item of item.nightLife" (click)="viewItem(item)">
-            <div class="card-header" [ngStyle]="{'background-image': 'url('+ item.thumb +')'}"></div>
-              <div class="padding-xs">
-                <h5>
-                  {{ item.name }} <span class="pull-right" color="danger" ion-text>₱ {{ item.price| number:'.2-2' }}</span>
-                </h5>
-                <div class="rating">
-                  <ion-icon name="md-star" color="restaurant-color" *ngFor="let star of range(item.stars)"></ion-icon>
-                  <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - item.stars)" ></ion-icon>
-                  <span ion-text color="gray">{{ item.rating }}</span>
-                </div>
-                <span ion-text color="gray">Recommended for:</span>
-                <ion-badge color="primary"> {{ item.tags }} </ion-badge> 
-                <p ion-text color="light-blue"><ion-icon name="pin"></ion-icon> {{ item.address }}</p>
+        <span class="pull-right" color="secondary" ion-text (click)="viewAll('nightLife','night life')">See More >></span>
+        <div class="clear"></div>
+      </div>
+      <div class="items" padding-left padding-bottom>
+        <ion-slides speed="200">
+          <ion-slide *ngFor="let item of item.nightLife">
+            <div class="card round" (click)="viewItem(item)">
+              <div class="card-header" [ngStyle]="{'background-image': 'url('+ item.thumb +')'}"></div>
+                <div class="padding-xs">
+                  <h5>
+                    {{ item.name }} <span class="pull-right" color="danger" ion-text>₱ {{ item.price| number:'.2-2' }}</span>
+                  </h5>
+                  <div class="rating">
+                    <ion-icon name="md-star" color="restaurant-color" *ngFor="let star of range(item.stars)"></ion-icon>
+                    <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - item.stars)" ></ion-icon>
+                    <span ion-text color="gray">{{ item.rating }}</span>
+                  </div>
+                  <span ion-text color="gray">Recommended for:</span>
+                  <ion-badge color="primary"> {{ item.tags }} </ion-badge> 
+                  <p ion-text color="light-blue"><ion-icon name="pin"></ion-icon>{{ item.place | uppercase }}</p>
+              </div>
             </div>
-          </div>
-        </div>
+          </ion-slide>
+        </ion-slides>
+      </div>
     </div>
     <!-- End Night Life -->        
 
@@ -257,22 +276,26 @@
           <div class="clear"></div>
         </div>
         <div class="items" padding-left padding-bottom> 
-          <div class="card round" *ngFor="let item of item.historicalPlaces" (click)="viewItem(item)">
-            <div class="card-header" [ngStyle]="{'background-image': 'url('+ item.thumb +')'}"></div>
-              <div class="padding-xs">
-                <h5>
-                  {{ item.name }} <span class="pull-right" color="danger" ion-text>₱ {{ item.price| number:'.2-2' }}</span>
-                </h5>
-                <div class="rating">
-                  <ion-icon name="md-star" color="restaurant-color" *ngFor="let star of range(item.stars)"></ion-icon>
-                  <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - item.stars)" ></ion-icon>
-                  <span ion-text color="gray">{{ item.rating }}</span>
+          <ion-slides speed="200">
+            <ion-slide *ngFor="let item of item.historicalPlaces">
+              <div class="card round" (click)="viewItem(item)">
+                <div class="card-header" [ngStyle]="{'background-image': 'url('+ item.thumb +')'}"></div>
+                  <div class="padding-xs">
+                    <h5>
+                      {{ item.name }} <span class="pull-right" color="danger" ion-text>₱ {{ item.price| number:'.2-2' }}</span>
+                    </h5>
+                    <div class="rating">
+                      <ion-icon name="md-star" color="restaurant-color" *ngFor="let star of range(item.stars)"></ion-icon>
+                      <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - item.stars)" ></ion-icon>
+                      <span ion-text color="gray">{{ item.rating }}</span>
+                    </div>
+                    <span ion-text color="gray">Recommended for:</span>
+                    <ion-badge color="primary"> {{ item.tags }} </ion-badge> 
+                    <p ion-text color="light-blue"><ion-icon name="pin"></ion-icon>{{ item.place | uppercase }}</p>
                 </div>
-                <span ion-text color="gray">Recommended for:</span>
-                <ion-badge color="primary"> {{ item.tags }} </ion-badge> 
-                <p ion-text color="light-blue"><ion-icon name="pin"></ion-icon> {{ item.address }}</p>
-            </div>
-          </div>
+              </div>
+            </ion-slide>
+          </ion-slides>
         </div>
     </div>
     <!-- Historical Places -->    
@@ -293,5 +316,5 @@
       </div>
     </div>
     <!-- End Banner -->
-  </section>
+  </div>
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Items } from '../../providers/items/items';
 declare var google: any;
@@ -18,7 +18,8 @@ export class HomePage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public geo: Geolocation,
-              public item: Items 
+              public item: Items ,
+              public app: App
               ) {
     
   }
@@ -73,12 +74,16 @@ export class HomePage {
     title = title != null && title != ''? title : key;
 
     let data = { key: key, title: title };
-
+ 
 
     // console.log(data);
     this.navCtrl.push("ItemListPage", {data : data });
   }
 
-
+  viewItemsByPlace(place) {
+    this.navCtrl.push("ViewItemByPlacePage", {place : place});
+    // this.app.getRootNav().setr
+    // this.navCtrl.
+  }
 
 }

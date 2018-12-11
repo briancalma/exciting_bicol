@@ -170,6 +170,12 @@ page-home,
     }
   }
 
-  
+  .slide-zoom {
+    text-align: left;
+  }
+
+  ion-slides .swiper-pagination.hide {
+    display: none !important;
+  }
 }
 

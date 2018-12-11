@@ -15,7 +15,7 @@ export class TabsPage {
   tab3Root: any = Tab3Root;
   tab4Root: any = Tab4Root;
 
-  tab1Title = " ";
+  tab1Title = " "; 
   tab2Title = " ";
   tab3Title = " ";
   tab4Title = " ";
